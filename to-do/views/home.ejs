@@ -1,0 +1,25 @@
+<%- include("header") -%>
+
+<div class="middle container">
+    <div class="to-do">
+        <div class="time"><%=title%></div>
+        <% titles.forEach(element => { %>
+            <div class="listItems">
+                <form action="/delete" method="post">
+                    <input type="checkbox" name="checkbox" value="<%=element.name%>" class="cb" onclick="this.form.submit()">
+                    <a href="/<%= element.name %>">
+                        <span class="span"><%= element.name %></span>
+                    </a>
+                </form>
+            </div>
+        <% }); %>
+        <div class="form-home">
+            <form action="/" method="post">
+                <input type="text" name="reqList" placeholder="enter your list name.">
+                <button type="submit">►</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("footer") -%>
